@@ -1,4 +1,3 @@
 # TP_NOTE
-Tp java S6
 
-TP noté sur les schtroumpfs.
+TP noté du semestre 6 L3 Informatique MIAGE en POO sur les schtroumpfs.
