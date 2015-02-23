@@ -12,6 +12,8 @@ public class Schtroumpf {
 	private int stockDeSalsePareille =0;
 	public static int HUMEUR_MAX = 10;
 	public static int HUMEUR_MIN = 0;
+	public static int RECOLTE_MAX = 100;
+	public static int FATIGUE = 1;
 	
 	public Schtroumpf(String nomS) throws NomIncorrectException{
 		if ( (nomS.startsWith("Schtroumpf ")) 
@@ -35,6 +37,11 @@ public class Schtroumpf {
 	}
 	public String toString() {
 		return nom + "[" + humeur + "]" + emoticone;
+	}
+	public int recolteDeLaSalsepareille() {
+		int recolteCourante = RECOLTE_MAX * humeur / HUMEUR_MAX;
+		stockDeSalsePareille += recolteCourante;
+		return recolteCourante;
 	}
 	
 
