@@ -1,7 +1,7 @@
 package schtroumpfs;
 
-import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class Village {
@@ -15,9 +15,21 @@ public class Village {
 		s.setZone(z);
 		village.add(s);
 	}
+	public int organiserRepasDeFete() {
+		int totalMange = 0;
+		
+		for (Schtroumpf s : village) {
+			s.recolteDeLaSalsepareille();
+			int stockInde = s.getStockDeSalsepareille();
+			Random rand = new Random(); 
+			int quantiteMangeParSchtroumpf = rand.nextInt(stockInde) + 1; 
+			totalMange += quantiteMangeParSchtroumpf;
+		}
+		return totalMange;
+	}
 	
 	
-	public ArrayList<Schtroumpf> tousLesHabitants() {
+	public Set<Schtroumpf> tousLesHabitants() {
 		return village;
 	}
 	

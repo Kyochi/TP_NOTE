@@ -122,7 +122,10 @@ public class Schtroumpf {
 	public boolean equals (Object o) {
 		return(o instanceof Schtroumpf) && ((Schtroumpf)o).nom.equals(nom);
 	}
-	
+	@Override
+	public int hashCode() {
+		 return Integer.valueOf(nom.charAt(0) + nom.charAt(11));
+	}
 
 	public int getStockDeSalsepareille() {
 		return stockDeSalsePareille;
@@ -145,8 +148,6 @@ public class Schtroumpf {
 		zone = newzone;
 	}
 
-	public int getStockSalsePareille() {
-		return stockDeSalsePareille;
-	}
+
 
 }
