@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class Schtroumpf {
 	private String nom;
-	private int humeur;
-	private String emoticone;
+	protected int humeur;
+	protected String emoticone;
 	private Zone zone = Zone.SUD;
 	private boolean malade = false;
 	private int stockDeSalsePareille =0;
