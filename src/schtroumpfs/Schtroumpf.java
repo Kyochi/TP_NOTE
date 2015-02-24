@@ -130,6 +130,9 @@ public class Schtroumpf {
 	public int getStockDeSalsepareille() {
 		return stockDeSalsePareille;
 	}
+	public void setStockDeSalsepareille(int nouveauStock) {
+		stockDeSalsePareille = nouveauStock;
+	}
 	public String getNom() {
 		return nom;
 	}

@@ -19,10 +19,18 @@ public class Village {
 		int totalMange = 0;
 		
 		for (Schtroumpf s : village) {
-			s.recolteDeLaSalsepareille();
 			int stockInde = s.getStockDeSalsepareille();
-			Random rand = new Random(); 
-			int quantiteMangeParSchtroumpf = rand.nextInt(stockInde) + 1; 
+			
+			int quantiteMangeParSchtroumpf =0;
+			if (stockInde > Schtroumpf.APPETIT_MAX) {
+				Random rand = new Random(); 
+				quantiteMangeParSchtroumpf = rand.nextInt(Schtroumpf.APPETIT_MAX) + 1; 
+			}
+			if (stockInde <= Schtroumpf.APPETIT_MAX) {
+				Random rand = new Random(); 
+				quantiteMangeParSchtroumpf = rand.nextInt(stockInde) + 1; 
+			}
+			s.setStockDeSalsepareille(stockInde - quantiteMangeParSchtroumpf);
 			totalMange += quantiteMangeParSchtroumpf;
 		}
 		return totalMange;
