@@ -1,16 +1,23 @@
 package schtroumpfs;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Village {
 
-	private ArrayList<Schtroumpf> village;
+	private Set<Schtroumpf> village;
 	
 	public Village() {
-		village = new ArrayList();
+		village = new HashSet<Schtroumpf>();
 	}
-
-	public ArrayList<Schtroumpf> getVillage() {
+	public void emmenage(Schtroumpf s, Zone z) {
+		s.setZone(z);
+		village.add(s);
+	}
+	
+	
+	public ArrayList<Schtroumpf> tousLesHabitants() {
 		return village;
 	}
 	
