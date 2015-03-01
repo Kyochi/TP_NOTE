@@ -16,24 +16,8 @@ public class Village {
 		village.add(s);
 	}
 	public int organiserRepasDeFete() {
-		int totalMange = 0;
+		return 0;
 		
-		for (Schtroumpf s : village) {
-			int stockInde = s.getStockDeSalsepareille();
-			
-			int quantiteMangeParSchtroumpf =0;
-			if (stockInde > Schtroumpf.APPETIT_MAX) {
-				Random rand = new Random(); 
-				quantiteMangeParSchtroumpf = rand.nextInt(Schtroumpf.APPETIT_MAX) + 1; 
-			}
-			if (stockInde <= Schtroumpf.APPETIT_MAX) {
-				Random rand = new Random(); 
-				quantiteMangeParSchtroumpf = rand.nextInt(stockInde) + 1; 
-			}
-			s.setStockDeSalsepareille(stockInde - quantiteMangeParSchtroumpf);
-			totalMange += quantiteMangeParSchtroumpf;
-		}
-		return totalMange;
 	}
 	
 	

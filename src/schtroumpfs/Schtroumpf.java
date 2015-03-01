@@ -12,13 +12,20 @@ public class Schtroumpf {
 	private Zone zone = Zone.SUD;
 	private boolean malade = false;
 	private int stockDeSalsePareille =0;
-	
+	/*
 	public static int HUMEUR_MAX = 10;
 	public static int HUMEUR_MIN = 0;
 	public static int RECOLTE_MAX = 100;
 	public static int FATIGUE = 1;
 	public static int REVIGORATION = 1;
 	public static int APPETIT_MAX = 20;
+	*/
+	public static int HUMEUR_MAX = 30;
+	public static int HUMEUR_MIN = 10;
+	public static int RECOLTE_MAX = 20;
+	public static int FATIGUE = 3;
+	public static int REVIGORATION = 8;
+	public static int APPETIT_MAX = 3;
 	
 	public Schtroumpf(String nomS) throws NomIncorrectException{
 		if ( (nomS.startsWith("Schtroumpf ")) 
@@ -26,7 +33,7 @@ public class Schtroumpf {
 			|| (nomS.equals("Schtroumpfette")) ) 		{
 			nom = nomS;
 			Random rand = new Random(); 
-			int humeurRand = rand.nextInt(10) + 0; 
+			int humeurRand = rand.nextInt((Schtroumpf.HUMEUR_MAX - Schtroumpf.HUMEUR_MIN) + 1) + Schtroumpf.HUMEUR_MIN; 
 			humeur = humeurRand;
 			emoticone = (this.deBonneHumeur()) ?  ":)" : ":(";
 		}
@@ -41,7 +48,7 @@ public class Schtroumpf {
 		malade = status;
 	}
 	public boolean deBonneHumeur() {
-		return (humeur >= 5 ? true : false);
+		return (humeur >= (Schtroumpf.HUMEUR_MAX + Schtroumpf.HUMEUR_MIN)/2 ? true : false);
 	}
 	public String toString() {
 		return nom + "[" + humeur + "]" + emoticone;
@@ -49,21 +56,23 @@ public class Schtroumpf {
 	public int recolteDeLaSalsepareille() {
 		int recolteCourante = RECOLTE_MAX * humeur / HUMEUR_MAX;
 		stockDeSalsePareille += recolteCourante;
-		if (humeur > HUMEUR_MIN) humeur -= FATIGUE;
-		else humeur = HUMEUR_MIN;
+		
+		if (humeur >= Schtroumpf.HUMEUR_MIN + Schtroumpf.FATIGUE) humeur -= Schtroumpf.FATIGUE;
+		else humeur = Schtroumpf.HUMEUR_MIN;
+		
 		return recolteCourante;
 	}
 	public int mangeDeLaSalsepareille() {
 		Random rand = new Random(); 
-		int salsemange = rand.nextInt(APPETIT_MAX) + 1; 
+		int salsemange = rand.nextInt((Schtroumpf.APPETIT_MAX - 1) + 1) + 1; 
 		stockDeSalsePareille -= salsemange;
-		if(humeur < HUMEUR_MAX) humeur += REVIGORATION;
-		else humeur = HUMEUR_MAX;
+		if (humeur >= Schtroumpf.HUMEUR_MAX - Schtroumpf.REVIGORATION || humeur == Schtroumpf.HUMEUR_MAX )  humeur = Schtroumpf.HUMEUR_MAX;
+		else humeur += Schtroumpf.REVIGORATION;
 		return salsemange;
 	}
 	public static Schtroumpf attaqueDeLaMoucheBzz(ArrayList<Schtroumpf> schtroumpfCollection) {
 		Random rand = new Random(); 
-		int indexSchtroumpfPique = rand.nextInt(schtroumpfCollection.size() - 1) + 0; 
+		int indexSchtroumpfPique = rand.nextInt((schtroumpfCollection.size() - 1) + 1) + 0; 
 		(schtroumpfCollection.get(indexSchtroumpfPique)).setMalade(true);
 		(schtroumpfCollection.get(indexSchtroumpfPique)).setHumeur(HUMEUR_MIN);
 		return schtroumpfCollection.get(indexSchtroumpfPique);
