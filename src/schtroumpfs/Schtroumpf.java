@@ -11,7 +11,7 @@ public class Schtroumpf {
 	protected String emoticone;
 	private Zone zone = Zone.SUD;
 	private boolean malade = false;
-	private int stockDeSalsePareille =0;
+	private int stockDeSalsePareille;
 	/*
 	public static int HUMEUR_MAX = 10;
 	public static int HUMEUR_MIN = 0;
@@ -55,6 +55,7 @@ public class Schtroumpf {
 	}
 	public int recolteDeLaSalsepareille() {
 		int recolteCourante = RECOLTE_MAX * humeur / HUMEUR_MAX;
+		
 		stockDeSalsePareille += recolteCourante;
 		
 		if (humeur >= Schtroumpf.HUMEUR_MIN + Schtroumpf.FATIGUE) humeur -= Schtroumpf.FATIGUE;
@@ -63,9 +64,22 @@ public class Schtroumpf {
 		return recolteCourante;
 	}
 	public int mangeDeLaSalsepareille() {
+		int salsemange = 0;
 		Random rand = new Random(); 
-		int salsemange = rand.nextInt((Schtroumpf.APPETIT_MAX - 1) + 1) + 1; 
-		stockDeSalsePareille -= salsemange;
+		
+		if (Schtroumpf.APPETIT_MAX > stockDeSalsePareille) {
+			 
+			salsemange = rand.nextInt((Schtroumpf.APPETIT_MAX - 1) + 1) + 1;
+		}
+		if(stockDeSalsePareille <= APPETIT_MAX && stockDeSalsePareille != 0) {
+			
+			salsemange = rand.nextInt((stockDeSalsePareille - 1) + 1) + 1;
+		}
+		else salsemange = 1;
+		
+		if (stockDeSalsePareille >= salsemange) stockDeSalsePareille -= salsemange;
+		if(stockDeSalsePareille < salsemange) stockDeSalsePareille = 0;
+		
 		if (humeur >= Schtroumpf.HUMEUR_MAX - Schtroumpf.REVIGORATION || humeur == Schtroumpf.HUMEUR_MAX )  humeur = Schtroumpf.HUMEUR_MAX;
 		else humeur += Schtroumpf.REVIGORATION;
 		return salsemange;

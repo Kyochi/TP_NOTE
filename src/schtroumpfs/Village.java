@@ -16,7 +16,11 @@ public class Village {
 		village.add(s);
 	}
 	public int organiserRepasDeFete() {
-		return 0;
+		int salseConso = 0;
+		for (Schtroumpf s : village) {
+			salseConso += s.mangeDeLaSalsepareille();
+		}
+		return salseConso;
 		
 	}
 	
