@@ -119,7 +119,6 @@ public class VillageTest {
 		assertEquals( Math.min(Schtroumpf.HUMEUR_MAX, 25+Schtroumpf.REVIGORATION), schtroumpfs.get(1).getHumeur());
 		assertEquals( Math.min(Schtroumpf.HUMEUR_MAX, 20+Schtroumpf.REVIGORATION), schtroumpfs.get(2).getHumeur());
 		assertEquals( Math.min((Schtroumpf.HUMEUR_MAX+Schtroumpf.HUMEUR_MIN)/2-1, 10+Schtroumpf.REVIGORATION), schtroumpfs.get(3).getHumeur());
-		System.out.println(schtroumpfs.get(4).getHumeur());
 		assertEquals( Math.min((Schtroumpf.HUMEUR_MAX+Schtroumpf.HUMEUR_MIN)/2-1, 15+Schtroumpf.REVIGORATION), schtroumpfs.get(4).getHumeur());
 	}
 
