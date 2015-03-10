@@ -3,6 +3,7 @@ package schtroumpfs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Schtroumpf {
@@ -163,7 +164,7 @@ public class Schtroumpf {
 	}
 	@Override
 	public int hashCode() {
-		 return Integer.valueOf(nom.charAt(0) + nom.charAt(11));
+		return Objects.hash(nom);
 	}
 
 	public int getStockDeSalsepareille() {
