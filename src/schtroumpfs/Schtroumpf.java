@@ -58,10 +58,14 @@ public class Schtroumpf {
 		
 		stockDeSalsePareille += recolteCourante;
 		
-		
-		if (humeur >= Schtroumpf.HUMEUR_MIN + Schtroumpf.FATIGUE) humeur -= Schtroumpf.FATIGUE;
-		else humeur = Schtroumpf.HUMEUR_MIN;
-		
+		if(emoticone.equals(":D") || emoticone.equals(":[")) {
+			if (nom.equals("Grand Schtroumpf") || nom.equals("Schtroumpfette") || nom.equals("Schtroumpf farceur"))  humeur = Math.max((Schtroumpf.HUMEUR_MAX+Schtroumpf.HUMEUR_MIN)/2 ,humeur-Schtroumpf.FATIGUE);
+			else humeur = Math.max(Schtroumpf.HUMEUR_MIN, humeur-Schtroumpf.FATIGUE);
+		}
+		else {
+			if (humeur >= Schtroumpf.HUMEUR_MIN + Schtroumpf.FATIGUE) humeur -= Schtroumpf.FATIGUE;
+			else humeur = Schtroumpf.HUMEUR_MIN;
+		}
 		return recolteCourante;
 	}
 	public int mangeDeLaSalsepareille() {
