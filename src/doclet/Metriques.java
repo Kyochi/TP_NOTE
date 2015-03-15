@@ -13,12 +13,7 @@ import com.sun.javadoc.Tag;
 
 public class Metriques extends Doclet {
 
-	/**
-	 * <p>
-	 * La méthode start() est appelée automatiquement par l'outil
-	 * javadoc. Exemple d'utilisation de la classe : 
-	 * javadoc -classpath -doclet madoclet.MaDocDeClasse
-	 */
+
 	public static boolean start(RootDoc root) { 
 		ClassDoc[] classes = root.classes();
 		FieldDoc[] champs;
