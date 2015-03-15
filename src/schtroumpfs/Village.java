@@ -9,17 +9,40 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Classe représentant un village de Schtroumpfs.
+ * @author Baptiste CHARRIER
+ * @version 1
+ */
 public class Village {
 
+	/*
+	 * Variable contenant le village de Schtroumpf dans un Set.
+	 */
 	private Set<Schtroumpf> village;
 	
+	/*
+	 * Contructeur de Village.
+	 * Initialise le Set village.
+	 */
 	public Village() {
 		village = new HashSet<Schtroumpf>();
 	}
+	
+	/*
+	 * Permet à un Schtroumpf d'emménager dans une zone du village.
+	 * @param s Schtroumpf arrivant.
+	 * @param z Zone d'emménagement.
+	 */
 	public void emmenage(Schtroumpf s, Zone z) {
 		s.setZone(z);
 		village.add(s);
 	}
+	
+	/*
+	 * Organise un repas de fête pour tout les habitants du village.
+	 * @return Salse consommées pendant le repas.
+	 */
 	public int organiserRepasDeFete() {
 		int salseConso = 0;
 		for (Schtroumpf s : village) {
@@ -29,14 +52,24 @@ public class Village {
 		return salseConso;
 		
 	}
+	
+	/*
+	 * Organise une récolte commune à tout les habitants
+	 * @param f Filtre acceptant ou non la participation d'un schtroumpf du village.
+	 * @return Quantitée de salse recoltées.
+	 */
 	public int organiserRecolte(Filtre<Schtroumpf> f) {
-		int salseConso = 0;
+		int salseRecolte = 0;
 		for (Schtroumpf s: village) {
-			if (f.accepte(s)) salseConso += s.recolteDeLaSalsepareille();
+			if (f.accepte(s)) salseRecolte += s.recolteDeLaSalsepareille();
 			
 		}
-		return salseConso;
+		return salseRecolte;
 	}
+	/*
+	 * Calcule l'indice de bonheur brut d'un village.
+	 * @return Indice de bonheur brut (heure moyenne des habitants) d'un village.
+	 */
 	public float indiceDeBonheurBrut() throws VillageVideException {
 		if (village.isEmpty()) throw new VillageVideException("Impossible de calculer l'IBB, le village est vide");
 		else {
@@ -48,6 +81,11 @@ public class Village {
 			return (sommeDesHumeurs)/(float)village.size();
 		}
 	}
+	
+	/*
+	 * Calcule le produit intérieur brut du village.
+	 * @return PIB (Stock de salse moyen par habitant) du village.
+	 */
 	public Double produitInterieurBrutParSchtroumpf() throws VillageVideException {
 		if(village.isEmpty()) throw new VillageVideException("Impossible de calculer le PIB, le village est vide");
 		else {
@@ -58,6 +96,12 @@ public class Village {
 			return salseTotale/village.size();
 		}
 	}
+	
+	/*
+	 * Renvoie une Liste des habitants en fonction d'un Filtre.
+	 * @param f Filtre à Schtroumpf.
+	 * @return une liste de Schtroumpf.
+	 */
 	public List<Schtroumpf>listeDesHabitantsTelsQue(Filtre<Schtroumpf> f ) {
 		List<Schtroumpf> listSchtroumpfTelQue = new ArrayList();
 		for (Schtroumpf s : village) {
@@ -66,6 +110,11 @@ public class Village {
 		return listSchtroumpfTelQue;
 		
 	}
+	
+	/*
+	 * Renvoie une liste des habitants du village triée par ordre décroissant d'humeur.
+	 * @return Liste triée de Schtroumpf.
+	 */
 	public List<Schtroumpf>listeLesHabitantsParHumeurCroissante() {
 		List<Schtroumpf>listSorted = new ArrayList(village);
 		
@@ -78,6 +127,10 @@ public class Village {
 		return listSorted;
 	}
 	
+	/*
+	 * Renvoie tous les habitants du village.
+	 * @return Set<Schtroumpf>
+	 */
 	public Set<Schtroumpf> tousLesHabitants() {
 		return village;
 	}

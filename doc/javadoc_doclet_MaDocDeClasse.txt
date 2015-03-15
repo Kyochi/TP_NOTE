@@ -1,0 +1,79 @@
+Loading source files for package schtroumpfs...
+Constructing Javadoc information...
+
+*** classe schtroumpfs.Zone
+          extends java.lang.Enum
+     *+ schtroumpfs.Zone SUD*
+     *+ schtroumpfs.Zone NORD*
+     - java.lang.String name_zone
+     - Zone(java.lang.String z)
+     *+ schtroumpfs.Zone[] values()*
+     *+ schtroumpfs.Zone valueOf(java.lang.String name)*
+
+*** classe schtroumpfs.VillageVideException
+          extends java.lang.Exception
+     + VillageVideException(java.lang.String message)
+
+*** classe schtroumpfs.Village
+     - java.util.Set village
+     + Village()
+     + void emmenage(schtroumpfs.Schtroumpf s,schtroumpfs.Zone z)
+     + int organiserRepasDeFete()
+     + int organiserRecolte(schtroumpfs.Filtre f)
+     + float indiceDeBonheurBrut()
+     + java.lang.Double produitInterieurBrutParSchtroumpf()
+     + java.util.List listeDesHabitantsTelsQue(schtroumpfs.Filtre f)
+     + java.util.List listeLesHabitantsParHumeurCroissante()
+     + java.util.Set tousLesHabitants()
+
+*** classe schtroumpfs.SchtroumpfEquanime
+          extends schtroumpfs.Schtroumpf
+      int humeurInitiale
+     + SchtroumpfEquanime(java.lang.String nomS,int humeurDef)
+     + int getHumeurInitiale()
+
+*** classe schtroumpfs.Schtroumpf
+     - java.lang.String nom
+     # int humeur
+     # java.lang.String emoticone
+     - schtroumpfs.Zone zone
+     - boolean malade
+     - int stockDeSalsePareille
+     *+ int HUMEUR_MAX*
+     *+ int HUMEUR_MIN*
+     *+ int RECOLTE_MAX*
+     *+ int FATIGUE*
+     *+ int REVIGORATION*
+     *+ int APPETIT_MAX*
+     + Schtroumpf(java.lang.String nomS)
+     + boolean estMalade()
+     + void setMalade(boolean status)
+     + boolean deBonneHumeur()
+     + java.lang.String toString()
+     + int recolteDeLaSalsepareille()
+     + int mangeDeLaSalsepareille()
+     *+ schtroumpfs.Schtroumpf attaqueDeLaMoucheBzz(java.util.ArrayList schtroumpfCollection)*
+     + void mangeDuPollenDeTubereuse()
+     + void mord(schtroumpfs.Schtroumpf s)
+     + void parle(java.lang.String message)
+     + boolean equals(java.lang.Object o)
+     + int hashCode()
+     + int getStockDeSalsepareille()
+     + void setStockDeSalsepareille(int nouveauStock)
+     + java.lang.String getNom()
+     + int getHumeur()
+     + void setHumeur(int nouvelleHumeur)
+     + schtroumpfs.Zone getZone()
+     + void setZone(schtroumpfs.Zone newzone)
+
+*** classe schtroumpfs.NomIncorrectException
+          extends java.lang.Exception
+     + NomIncorrectException(java.lang.String message)
+
+*** classe schtroumpfs.MorsureException
+          extends java.lang.Exception
+     + MorsureException(java.lang.String message)
+
+*** classe schtroumpfs.Filtre
+     + Filtre()
+     + boolean accepte(java.lang.Object s)
