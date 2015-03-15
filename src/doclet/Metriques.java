@@ -42,14 +42,8 @@ public class Metriques extends Doclet {
 		System.out.println("Le nombre de classe concrète publique est de " + nombreDeClassesPublique + ".");
 		System.out.println("\t" + "- Le nombre moyen de méthode par classe concrète publique est de " + nombreMoyenDeMethodeParClassePublique +  ".");
 		System.out.println("\t" + "- Le nombre moyen de commentaire javadoc par membre de classe concrète publique est de " + nombreMoyenDeCommentaireParMembreDeClassePublique + ".");
-		
 		System.out.println("Le nombre de classe concrète privée est de " + nombreDeClassesPrivee + ".");
-		
-		
-		
-		
-		return true;
-	
-		
+
+		return true;	
 	}
 }
