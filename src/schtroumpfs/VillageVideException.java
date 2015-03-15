@@ -7,11 +7,11 @@ package schtroumpfs;
  */
 public class VillageVideException extends Exception {
 
-	/*
+	/**
 	 * Constructeur de VillageVideExeption.
 	 * @param message Message décrivant l'exception levée.
 	 */
-	public VillageVideException(String message) {
+	public VillageVideException (String message) {
 		super(message);
 	}
 }

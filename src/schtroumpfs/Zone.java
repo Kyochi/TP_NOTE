@@ -9,13 +9,13 @@ package schtroumpfs;
 public enum Zone {
  SUD("Zone Sud"),
  NORD("Zone Nord");
- 
- /*
+
+ /**
   * Nom d'une zone
   */
  private final String nom_zone;
  
- /*
+ /**
   * Constructeur de Zone.
   * @param zone nouvelle Zone
   */

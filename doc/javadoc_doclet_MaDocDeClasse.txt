@@ -3,18 +3,34 @@ Constructing Javadoc information...
 
 *** classe schtroumpfs.Zone
           extends java.lang.Enum
+/**
+Enumération de Zone
+ Permet de décrire la zone d'habitation d'un schtroumpf dans un village.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      *+ schtroumpfs.Zone SUD*
      *+ schtroumpfs.Zone NORD*
-     - java.lang.String name_zone
-     - Zone(java.lang.String z)
+     - java.lang.String nom_zone
+     - Zone(java.lang.String zone)
      *+ schtroumpfs.Zone[] values()*
      *+ schtroumpfs.Zone valueOf(java.lang.String name)*
 
 *** classe schtroumpfs.VillageVideException
           extends java.lang.Exception
+/**
+Classe d'exception de village vide.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      + VillageVideException(java.lang.String message)
 
 *** classe schtroumpfs.Village
+/**
+Classe représentant un village de Schtroumpfs.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      - java.util.Set village
      + Village()
      + void emmenage(schtroumpfs.Schtroumpf s,schtroumpfs.Zone z)
@@ -28,11 +44,22 @@ Constructing Javadoc information...
 
 *** classe schtroumpfs.SchtroumpfEquanime
           extends schtroumpfs.Schtroumpf
-      int humeurInitiale
+/**
+Classe : SchtroumpfEquanime.
+ Schtroumpf ayant une humeur fixe.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
+     - int humeurInitiale
      + SchtroumpfEquanime(java.lang.String nomS,int humeurDef)
      + int getHumeurInitiale()
 
 *** classe schtroumpfs.Schtroumpf
+/**
+Classe : Schtroumpf.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      - java.lang.String nom
      # int humeur
      # java.lang.String emoticone
@@ -68,12 +95,26 @@ Constructing Javadoc information...
 
 *** classe schtroumpfs.NomIncorrectException
           extends java.lang.Exception
+/**
+Classe d'exception de nom.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      + NomIncorrectException(java.lang.String message)
 
 *** classe schtroumpfs.MorsureException
           extends java.lang.Exception
+/**
+Classe d'exception de morsure.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      + MorsureException(java.lang.String message)
 
-*** classe schtroumpfs.Filtre
-     + Filtre()
+*** interface schtroumpfs.Filtre
+/**
+Interface Filtre à Schtroumpf.
+ * @author:Baptiste CHARRIER
+ * @version:1
+*/
      + boolean accepte(java.lang.Object s)
