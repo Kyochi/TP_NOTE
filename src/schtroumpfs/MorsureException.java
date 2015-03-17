@@ -7,7 +7,7 @@ package schtroumpfs;
  */
 public class MorsureException extends Exception {
 	/**
-	 * Contructeur de MorsureException
+	 * Contructeur de MorsureException.
 	 * @param message Message décrivant l'exception levée.
 	 */
 	public MorsureException(String message) {

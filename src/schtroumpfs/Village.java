@@ -34,7 +34,7 @@ public class Village {
 	 * @param s Schtroumpf arrivant.
 	 * @param z Zone d'emménagement.
 	 */
-	public void emmenage(Schtroumpf s, Zone z) {
+	public final void emmenage(final Schtroumpf s, final Zone z) {
 		s.setZone(z);
 		village.add(s);
 	}
@@ -43,7 +43,7 @@ public class Village {
 	 * Organise un repas de fête pour tout les habitants du village.
 	 * @return Salse consommées pendant le repas.
 	 */
-	public int organiserRepasDeFete() {
+	public final int organiserRepasDeFete() {
 		int salseConso = 0;
 		for (Schtroumpf s : village) {
 			salseConso += s.mangeDeLaSalsepareille();
@@ -52,27 +52,36 @@ public class Village {
 	}
 	
 	/**
-	 * Organise une récolte commune à tout les habitants
-	 * @param f Filtre acceptant ou non la participation d'un schtroumpf du village.
+	 * Organise une récolte commune à tout les habitants.
+	 * @param f Filtre acceptant ou 
+	 * non la participation d'un schtroumpf du village.
 	 * @return Quantitée de salse recoltées.
 	 */
-	public int organiserRecolte(Filtre<Schtroumpf> f) {
+	public final int organiserRecolte(final Filtre<Schtroumpf> f) {
 		int salseRecolte = 0;
 		for (Schtroumpf s: village) { 
-			if (f.accepte(s)) salseRecolte += s.recolteDeLaSalsepareille(); 
+			if (f.accepte(s)) {
+				salseRecolte += s.recolteDeLaSalsepareille(); 
+			}
 		}
 		return salseRecolte;
 	}
 	/**
 	 * Calcule l'indice de bonheur brut d'un village.
-	 * @return Indice de bonheur brut (heure moyenne des habitants) d'un village.
+	 * @return Indice de bonheur brut 
+	 * (heure moyenne des habitants) d'un village.
 	 * @throws VillageVideException Lève une exception si le village est vide.
 	 */
-	public float indiceDeBonheurBrut() throws VillageVideException {
-		if (village.isEmpty()) throw new VillageVideException("Impossible de calculer l'IBB, le village est vide");
-		else {
+	public final float indiceDeBonheurBrut() throws VillageVideException {
+		if (village.isEmpty()) {
+			throw new VillageVideException("Impossible de calculer l'IBB,"
+					+ " le village est vide");
+		} else {
 			float sommeDesHumeurs = 0;
-			for (Schtroumpf s : village) { sommeDesHumeurs += ((SchtroumpfEquanime) s).getHumeurInitiale(); }
+			for (Schtroumpf s : village) { 
+				sommeDesHumeurs += 
+						((SchtroumpfEquanime) s).getHumeurInitiale(); 
+			}
 			return (sommeDesHumeurs) / (float) village.size();
 		}
 	}
@@ -82,8 +91,12 @@ public class Village {
 	 * @return PIB (Stock de salse moyen par habitant) du village.
 	 * @throws VillageVideException Lève une exception si le village est vide.
 	 */
-	public Double produitInterieurBrutParSchtroumpf() throws VillageVideException {
-		if (village.isEmpty()) throw new VillageVideException("Impossible de calculer le PIB, le village est vide");
+	public final Double produitInterieurBrutParSchtroumpf() 
+			throws VillageVideException {
+		if (village.isEmpty()) {
+			throw new VillageVideException("Impossible de calculer le PIB,"
+					+ " le village est vide");
+		}
 		else {
 			double salseTotale = 0;
 			for (Schtroumpf s : village) {
@@ -98,24 +111,29 @@ public class Village {
 	 * @param f Filtre à Schtroumpf.
 	 * @return une liste de Schtroumpf.
 	 */
-	public List<Schtroumpf> listeDesHabitantsTelsQue(Filtre<Schtroumpf> f ) {
+	public final List<Schtroumpf> listeDesHabitantsTelsQue(final 
+			Filtre<Schtroumpf> f) {
 		List<Schtroumpf> listSchtroumpfTelQue = new ArrayList();
 		for (Schtroumpf s : village) {
-			if (f.accepte(s)) { listSchtroumpfTelQue.add(s); }
+			if (f.accepte(s)) {
+				listSchtroumpfTelQue.add(s); 
+			}
 		}
 		return listSchtroumpfTelQue;
 	}
 	
 	/**
-	 * Renvoie une liste des habitants du village triée par ordre décroissant d'humeur.
+	 * Renvoie une liste des habitants du village
+	 *  triée par ordre décroissant d'humeur.
 	 * @return Liste triée de Schtroumpf.
 	 */
-	public List<Schtroumpf> listeLesHabitantsParHumeurCroissante() {
+	public final List<Schtroumpf> listeLesHabitantsParHumeurCroissante() {
 		List<Schtroumpf> listSorted = new ArrayList(village);
-		Collections.sort(listSorted, new Comparator<Schtroumpf>(){
-			public int compare(Schtroumpf s1, Schtroumpf s2) {
-				if (s1.getHumeur() <= s2.getHumeur()) return -1;
-				else { 
+		Collections.sort(listSorted, new Comparator<Schtroumpf>() {
+			public int compare(final Schtroumpf s1, final Schtroumpf s2) {
+				if (s1.getHumeur() <= s2.getHumeur()) {
+					return -1;
+				} else { 
 					return 1; 
 				}
 			}
@@ -126,7 +144,7 @@ public class Village {
 	 * Renvoie tous les habitants du village.
 	 * @return Renvoie le village des Schtroumpfs
 	 */
-	public Set<Schtroumpf> tousLesHabitants() {
+	public final Set<Schtroumpf> tousLesHabitants() {
 		return village;
 	}
 

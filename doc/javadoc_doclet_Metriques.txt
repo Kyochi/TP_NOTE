@@ -1,0 +1,14 @@
+Loading source files for package schtroumpfs...
+Constructing Javadoc information...
+
+
+
+
+
+
+
+
+Le nombre de classe concrète publique est de 8.
+	- Le nombre moyen de méthode par classe concrète publique est de 4.
+	- Le nombre moyen de commentaire javadoc par membre de classe concrète publique est de 1.
+Le nombre de classe concrète privée est de 0.

@@ -8,26 +8,32 @@ package schtroumpfs;
  */
 public class SchtroumpfEquanime extends Schtroumpf {
 	/**
-	 * Humeur initiale d'un SchtroumpfEquanime
+	 * Humeur initiale d'un SchtroumpfEquanime.
 	 */
 	private int humeurInitiale;
 	/**
-	 * Constructeur de SchtroumpfEquanime
+	 * Constructeur de SchtroumpfEquanime.
 	 * @param nomS nom du SchtroumpfEquanime
 	 * @param humeurDef Humeur de création et définitive du Schtroumpf Equanime
-	 * @throws NomIncorrectException Lève une exception si le nom du schtroumpf est incorrect.
+	 * @throws NomIncorrectException Lève une exception 
+	 * si le nom du schtroumpf est incorrect.
 	 */
-	public SchtroumpfEquanime(String nomS, int humeurDef) throws NomIncorrectException {
+	public SchtroumpfEquanime(final String nomS, 
+			final int humeurDef) throws NomIncorrectException {
 		super(nomS);
 		humeurInitiale = humeurDef;
-		humeur = humeurInitiale;
-		emoticone = (this.deBonneHumeur()) ?  ":D" : ":[";
+		this.setHumeur(humeurInitiale);
+		if (this.deBonneHumeur()) {
+			this.setEmoticone(":D");
+		} else {
+			this.setEmoticone(":[");
+		}
 	}
 	/**
-	 * Renvoie l'humeur initiale d'un SchtroumpfEquanime
+	 * Renvoie l'humeur initiale d'un SchtroumpfEquanime.
 	 * @return humeurInitiale
 	 */
-	public int getHumeurInitiale() {
+	public final int getHumeurInitiale() {
 		return humeurInitiale;
 	}
 

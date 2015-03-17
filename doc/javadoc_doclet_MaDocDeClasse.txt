@@ -11,10 +11,11 @@ Enumération de Zone
 */
      *+ schtroumpfs.Zone SUD*
      *+ schtroumpfs.Zone NORD*
-     - java.lang.String nom_zone
+     - java.lang.String nomzone
      - Zone(java.lang.String zone)
      *+ schtroumpfs.Zone[] values()*
      *+ schtroumpfs.Zone valueOf(java.lang.String name)*
+     + java.lang.String getNomzone()
 
 *** classe schtroumpfs.VillageVideException
           extends java.lang.Exception
@@ -61,8 +62,8 @@ Classe : Schtroumpf.
  * @version:1
 */
      - java.lang.String nom
-     # int humeur
-     # java.lang.String emoticone
+     - int humeur
+     - java.lang.String emoticone
      - schtroumpfs.Zone zone
      - boolean malade
      - int stockDeSalsePareille
@@ -73,6 +74,8 @@ Classe : Schtroumpf.
      *+ int REVIGORATION*
      *+ int APPETIT_MAX*
      + Schtroumpf(java.lang.String nomS)
+     + void setEmoticone(java.lang.String newemoticone)
+     + java.lang.String getEmoticone()
      + boolean estMalade()
      + void setMalade(boolean status)
      + boolean deBonneHumeur()
@@ -116,5 +119,6 @@ Classe d'exception de morsure.
 Interface Filtre à Schtroumpf.
  * @author:Baptiste CHARRIER
  * @version:1
+ * @param:<Schtroumpf> filtre à schtroumpf.
 */
      + boolean accepte(java.lang.Object s)

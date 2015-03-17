@@ -5,13 +5,14 @@ package schtroumpfs;
  * @author Baptiste CHARRIER
  * @version 1
  */
-public class NomIncorrectException extends Exception{
+@SuppressWarnings("serial")
+public class NomIncorrectException extends Exception {
 
 	/**
-	 * Constructeur de NomIncorrectException
+	 * Constructeur de NomIncorrectException.
 	 * @param message Message décrivant l'exception levée.
 	 */
-	public NomIncorrectException(String message) {
+	public NomIncorrectException(final String message) {
 		super(message);
 		
 	}

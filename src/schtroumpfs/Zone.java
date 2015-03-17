@@ -7,19 +7,32 @@ package schtroumpfs;
  * @version 1
  */
 public enum Zone {
+	/**
+	 * Zone Sud.
+	 */
  SUD("Zone Sud"),
+ /**
+  * Zone Nord.
+  */
  NORD("Zone Nord");
 
  /**
-  * Nom d'une zone
+  * Nom d'une zone.
   */
- private final String nom_zone;
+ private String nomzone;
  
  /**
   * Constructeur de Zone.
-  * @param zone nouvelle Zone
+  * @param zone nouvelle Zone.
   */
- Zone(String zone) {
-	 nom_zone = zone;
+ Zone(final String zone) {
+	 nomzone = zone;
  }
+/**
+ * Getter de nomzone.
+ * @return nomzone.
+ */
+public String getNomzone() {
+	return nomzone;
+}
 }

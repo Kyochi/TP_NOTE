@@ -30,7 +30,11 @@ public class Metriques extends Doclet {
 		        nombreMoyenDeMethodeParClassePublique += (classes[i].methods()).length;
 		        champs = classes[i].fields();
 		        for (int j = 0; j < champs.length; ++j) {
-			        if (champs[i].isPublic()) nombreMoyenDeCommentaireParMembreDeClassePublique += (champs[i].tags()).length;   
+			        if (champs[j].isPublic()) {
+			        	if ((! classes[i].commentText().equals(""))) {
+			        		nombreMoyenDeCommentaireParMembreDeClassePublique ++;
+			        	}
+			        }
 		        }
 			}
 			
