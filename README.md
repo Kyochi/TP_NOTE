@@ -1,5 +1,6 @@
 # TP_NOTE
 
-TP noté du semestre 6 L3 Informatique MIAGE en POO sur les schtroumpfs.
+Projet noté du semestre 6 en Licence 3.
+Course : OOP
 
-Maj: (19/20)
+Grade: (19/20 | A+)
